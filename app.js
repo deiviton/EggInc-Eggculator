@@ -1,15 +1,15 @@
 function main() {
-    var chickenNow = 532000;
-    var chickenGrowth = 1232 * 4;
-    var eggValue = 553.539;
+    var chickenNow = 705000;
+    var chickenGrowth = 1298 * 4;
+    var eggValue = 565.572;
     var eggChar = 'B';
-    var laidByMinNow = 207.294;
+    var laidByMinNow = 273.800;
     var laidByMinNowChar = 'M';
     var soulEggs = 119000;
     var soulEggBonus = 12;
-    var henHouseCap = 12.6;
+    var henHouseCap = 16.800;
     var henHouseCapChar = 'M';
-    var deliveryCap = 1.952;
+    var deliveryCap = 8.269;
     var deliveryCapChar = 'B';
     var timeInHours = 6;
 
@@ -101,7 +101,7 @@ function timeConvert(num) {
     } else if (minutes < 10) {
         minutes = '0' + minutes;
     }
-    
+
     return hours + ":" + minutes;
 }
 

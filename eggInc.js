@@ -1,17 +1,19 @@
 function main() {
-    var chickenNow = 705000;
-    var chickenGrowth = 1298 * 4;
-    var eggValue = 565.572;
+    var chickenNow = 714000;
+    var chickenGrowth = 845 * 4;
+    var eggValue = 442.229;
     var eggChar = 'B';
-    var laidByMinNow = 273.800;
+    var laidByMinNow = 225.400;
     var laidByMinNowChar = 'M';
-    var soulEggs = 119000;
-    var soulEggBonus = 12;
+    var soulEggs = 266301;
+    var soulEggBonus = 14;
+    var prophecyEggs = 2;
+    var prophecyEggsBonus = prophecyEggs ** ((prophecyEggs * 5) / 100);
     var henHouseCap = 16.800;
     var henHouseCapChar = 'M';
     var deliveryCap = 8.269;
     var deliveryCapChar = 'B';
-    var timeInHours = 6;
+    var timeInHours = 0;
 
     eggValue = magnitudeExchange(eggValue, eggChar);
     laidByMinNow = magnitudeExchange(laidByMinNow, laidByMinNowChar);
@@ -95,7 +97,7 @@ function main() {
 function timeConvert(num) {
     var hours = Math.floor(num / 60);
     var minutes = num % 60;
-    
+
     if (minutes == 0) {
         minutes = '00';
     } else if (minutes < 10) {

@@ -1,19 +1,19 @@
 function main() {
-    var chickenNow = 714000;
-    var chickenGrowth = 845 * 4;
-    var eggValue = 442.229;
-    var eggChar = 'B';
-    var laidByMinNow = 225.400;
-    var laidByMinNowChar = 'M';
-    var soulEggs = 266301;
-    var soulEggBonus = 14;
-    var prophecyEggs = 2;
-    var prophecyEggsBonus = prophecyEggs ** ((prophecyEggs * 5) / 100);
-    var henHouseCap = 16.800;
+    var chickenNow = 5299545;
+    var chickenGrowth = 804 * 4;
+    var eggValue = 3.772;
+    var eggChar = 'M';
+    var laidByMinNow = 1.285;
+    var laidByMinNowChar = 'B';
+    var soulEggs = 311422;
+    var soulEggBonus = 19;
+    var prophecyEggs = 5;
+    var prophecyEggsBonus = Math.pow(prophecyEggs, 2);
+    var henHouseCap = 8.4;
     var henHouseCapChar = 'M';
-    var deliveryCap = 8.269;
+    var deliveryCap = 1.645;
     var deliveryCapChar = 'B';
-    var timeInHours = 0;
+    var timeInHours = 147;
 
     eggValue = magnitudeExchange(eggValue, eggChar);
     laidByMinNow = magnitudeExchange(laidByMinNow, laidByMinNowChar);
@@ -72,26 +72,26 @@ function main() {
     fiveMChickensTime = timeConvert(fiveMChickensTime);
     console.log("I'll get to 5 million chickens in " + fiveMChickensTime + " hours from now");
 
-    //Tachyon Time
+    //Contracts
 
-    var tachyonTime = "0";
-    var tachyonEggsLaid = '548';
-    var tachyonEggsLaidChar = 'B';
+    var contractCompletionTime = "0";
+    var contractEggsLaid = '548';
+    var contractEggsLaidChar = 'B';
     var tempEggsLaidRatio = eggsLaidRatio;
-    var oneTrillion = 1;
-    var oneTrillionChar = 'T';
+    var eventGoals = 1;
+    var eventGoalsChar = 'T';
 
-    oneTrillion = magnitudeExchange(oneTrillion, oneTrillionChar);
-    tachyonEggsLaid = magnitudeExchange(tachyonEggsLaid, tachyonEggsLaidChar);
+    eventGoals = magnitudeExchange(eventGoals, eventGoalsChar);
+    contractEggsLaid = magnitudeExchange(contractEggsLaid, contractEggsLaidChar);
 
-    while (tachyonEggsLaid < oneTrillion) {
-        tachyonEggsLaid = tachyonEggsLaid + (tempChickenNow * tempEggsLaidRatio);
+    while (contractEggsLaid < eventGoals) {
+        contractEggsLaid = contractEggsLaid + (tempChickenNow * tempEggsLaidRatio);
         tempChickenNow = tempChickenNow + chickenGrowth;
-        tachyonTime++;
+        contractCompletionTime++;
     }
 
-    tachyonTime = timeConvert(tachyonTime);
-    console.log("I'll lay 1 trillion tachyon eggs in " + tachyonTime + " hours");
+    contractCompletionTime = timeConvert(contractCompletionTime);
+    console.log("I'll lay 1 trillion contract eggs in " + contractCompletionTime + " hours");
 }
 
 function timeConvert(num) {
@@ -121,23 +121,23 @@ function shortener(toShorten) {
     }
 
     if (counter == 1) {
-        toShorten = toShorten + " M";
+        toShorten = toShorten + "M";
     } else if (counter == 2) {
-        toShorten = toShorten + " B";
+        toShorten = toShorten + "B";
     } else if (counter == 3) {
-        toShorten = toShorten + " T";
+        toShorten = toShorten + "T";
     } else if (counter == 4) {
-        toShorten = toShorten + " q";
+        toShorten = toShorten + "q";
     } else if (counter == 5) {
-        toShorten = toShorten + " Q";
+        toShorten = toShorten + "Q";
     } else if (counter == 6) {
-        toShorten = toShorten + " s";
+        toShorten = toShorten + "s";
     } else if (counter == 7) {
-        toShorten = toShorten + " S";
+        toShorten = toShorten + "S";
     } else if (counter == 8) {
-        toShorten = toShorten + " o";
+        toShorten = toShorten + "o";
     } else if (counter == 9) {
-        toShorten = toShorten + " O";
+        toShorten = toShorten + "O";
     }
 
     return toShorten;

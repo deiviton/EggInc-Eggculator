@@ -39,7 +39,7 @@ function main() {
     var timeToFull = 0;
     var tempChickenNow = chickenNow;
     while (tempChickenNow < henHouseCap) {
-        tempChickenNow = tempChickenNow + chickenGrowth;
+        tempChickenNow += chickenGrowth;
         timeToFull++;
     }
 
@@ -51,7 +51,7 @@ function main() {
     var tempLaidByMinNow = laidByMinNow;
 
     while (tempLaidByMinNow < deliveryCap) {
-        tempChickenNow = tempChickenNow + chickenGrowth;
+        tempChickenNow += chickenGrowth;
         tempLaidByMinNow = tempChickenNow * eggsLaidRatio;
         timeToFull++;
     }
@@ -66,7 +66,7 @@ function main() {
     var tempfiveMChickens = tempChickenNow;
     var fiveMChickensTime = 0;
     while (tempfiveMChickens < fiveMChickens) {
-        var tempfiveMChickens = tempfiveMChickens + (chickenGrowth);
+        tempfiveMChickens += chickenGrowth;
         fiveMChickensTime++;
     }
     fiveMChickensTime = timeConvert(fiveMChickensTime);
@@ -85,8 +85,8 @@ function main() {
     contractEggsLaid = magnitudeExchange(contractEggsLaid, contractEggsLaidChar);
 
     while (contractEggsLaid < eventGoals) {
-        contractEggsLaid = contractEggsLaid + (tempChickenNow * tempEggsLaidRatio);
-        tempChickenNow = tempChickenNow + chickenGrowth;
+        contractEggsLaid += (tempChickenNow * tempEggsLaidRatio);
+        tempChickenNow += chickenGrowth;
         contractCompletionTime++;
     }
 
@@ -110,34 +110,44 @@ function timeConvert(num) {
 function shortener(toShorten) {
     let counter = 0;
     while (toShorten >= 1000000) {
-        toShorten = toShorten / 1000;
+        toShorten /= 1000;
         counter++;
     }
 
     toShorten = Math.round(toShorten);
 
     if (toShorten >= 1000) {
-        toShorten = toShorten / 1000;
+        toShorten /= 1000;
     }
 
-    if (counter == 1) {
-        toShorten = toShorten + "M";
-    } else if (counter == 2) {
-        toShorten = toShorten + "B";
-    } else if (counter == 3) {
-        toShorten = toShorten + "T";
-    } else if (counter == 4) {
-        toShorten = toShorten + "q";
-    } else if (counter == 5) {
-        toShorten = toShorten + "Q";
-    } else if (counter == 6) {
-        toShorten = toShorten + "s";
-    } else if (counter == 7) {
-        toShorten = toShorten + "S";
-    } else if (counter == 8) {
-        toShorten = toShorten + "o";
-    } else if (counter == 9) {
-        toShorten = toShorten + "O";
+    switch (counter) {
+        case 1:
+            toShorten += "M";
+            break;
+        case 2:
+            toShorten += "B";
+            break;
+        case 3:
+            toShorten += "T";
+            break;
+        case 4:
+            toShorten += "q";
+            break;
+        case 5:
+            toShorten += "Q";
+            break;
+        case 6:
+            toShorten += "s";
+            break;
+        case 7:
+            toShorten += "S";
+            break;
+        case 8:
+            toShorten += "o";
+            break;
+        case 9:
+            toShorten += "N";
+            break;
     }
 
     return toShorten;
@@ -146,32 +156,33 @@ function shortener(toShorten) {
 function magnitudeExchange(value, char) {
     switch (char) {
         case 'M':
-            value = value * 1000000;
+            value *= 1000000;
             break;
         case 'B':
-            value = value * 1000000000;
+            value *= 1000000000;
             break;
         case 'T':
-            value = value * 1000000000000;
+            value *= 1000000000000;
             break;
         case 'q':
-            value = value * 1000000000000000;
+            value *= 1000000000000000;
             break;
         case 'Q':
-            value = value * 1000000000000000000;
+            value *= 1000000000000000000;
             break;
         case 's':
-            value = value * 1000000000000000000000;
+            value *= 1000000000000000000000;
             break;
         case 'S':
-            value = value * 1000000000000000000000000;
+            value *= 1000000000000000000000000;
             break;
         case 'o':
-            value = value * 1000000000000000000000000000;
+            value *= 1000000000000000000000000000;
             break;
         default:
-            value = value;
+            return value;
     }
+    
     return value;
 }
 

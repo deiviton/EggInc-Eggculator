@@ -1,19 +1,19 @@
 function main() {
-    var chickenNow = 5299545;
-    var chickenGrowth = 804 * 4;
-    var eggValue = 3.772;
+    var chickenNow = 37058;
+    var chickenGrowth = 684 * 4;
+    var eggValue = 842.341;
     var eggChar = 'M';
-    var laidByMinNow = 1.285;
-    var laidByMinNowChar = 'B';
-    var soulEggs = 311422;
-    var soulEggBonus = 19;
-    var prophecyEggs = 5;
+    var laidByMinNow = 8.988417;
+    var laidByMinNowChar = 'M';
+    var soulEggs = 5318500;
+    var soulEggBonus = 20;
+    var prophecyEggs = 2;
     var prophecyEggsBonus = Math.pow(prophecyEggs, 2);
-    var henHouseCap = 8.4;
+    var henHouseCap = 4.2;
     var henHouseCapChar = 'M';
-    var deliveryCap = 1.645;
-    var deliveryCapChar = 'B';
-    var timeInHours = 147;
+    var deliveryCap = 257.812;
+    var deliveryCapChar = 'M';
+    var timeInHours = 30 * 24;
 
     eggValue = magnitudeExchange(eggValue, eggChar);
     laidByMinNow = magnitudeExchange(laidByMinNow, laidByMinNowChar);
@@ -74,12 +74,12 @@ function main() {
 
     //Contracts
 
-    var contractCompletionTime = "0";
-    var contractEggsLaid = '548';
-    var contractEggsLaidChar = 'B';
+    var contractCompletionTime = 0;
+    var contractEggsLaid = 102;
+    var contractEggsLaidChar = 'M';
     var tempEggsLaidRatio = eggsLaidRatio;
-    var eventGoals = 1;
-    var eventGoalsChar = 'T';
+    var eventGoals = 20;
+    var eventGoalsChar = 'q';
 
     eventGoals = magnitudeExchange(eventGoals, eventGoalsChar);
     contractEggsLaid = magnitudeExchange(contractEggsLaid, contractEggsLaidChar);
@@ -91,20 +91,30 @@ function main() {
     }
 
     contractCompletionTime = timeConvert(contractCompletionTime);
-    console.log("I'll lay 1 trillion contract eggs in " + contractCompletionTime + " hours");
+    console.log("I'll lay enough contract eggs in " + contractCompletionTime + " hours");
 }
 
 function timeConvert(num) {
     var hours = Math.floor(num / 60);
     var minutes = num % 60;
-
+    var days;
     if (minutes == 0) {
         minutes = '00';
     } else if (minutes < 10) {
         minutes = '0' + minutes;
     }
 
-    return hours + ":" + minutes;
+    if (hours > 24) {
+        days = Math.floor(hours / 24);
+        hours = hours - (days * 24);
+        if (days >1){
+            return days + " days " + hours + ":" + minutes;
+        } else{
+            return days + " day " + hours + ":" + minutes;
+        }
+    } else {
+        return hours + ":" + minutes;
+    }
 }
 
 function shortener(toShorten) {
@@ -182,7 +192,7 @@ function magnitudeExchange(value, char) {
         default:
             return value;
     }
-    
+
     return value;
 }
 

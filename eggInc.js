@@ -1,19 +1,19 @@
 function main() {
-    var chickenNow = 37058;
-    var chickenGrowth = 684 * 4;
-    var eggValue = 842.341;
-    var eggChar = 'M';
-    var laidByMinNow = 8.988417;
+    var chickenNow = 618582;
+    var chickenGrowth = 1184 * 4;
+    var eggValue = 7.581;
+    var eggChar = 'B';
+    var laidByMinNow = 255.050;
     var laidByMinNowChar = 'M';
     var soulEggs = 5318500;
     var soulEggBonus = 20;
     var prophecyEggs = 2;
     var prophecyEggsBonus = Math.pow(prophecyEggs, 2);
-    var henHouseCap = 4.2;
+    var henHouseCap = 16.8;
     var henHouseCapChar = 'M';
-    var deliveryCap = 257.812;
-    var deliveryCapChar = 'M';
-    var timeInHours = 30 * 24;
+    var deliveryCap = 1.263;
+    var deliveryCapChar = 'B';
+    var timeInHours = (29 * 24) + 21;
 
     eggValue = magnitudeExchange(eggValue, eggChar);
     laidByMinNow = magnitudeExchange(laidByMinNow, laidByMinNowChar);
@@ -75,8 +75,8 @@ function main() {
     //Contracts
 
     var contractCompletionTime = 0;
-    var contractEggsLaid = 102;
-    var contractEggsLaidChar = 'M';
+    var contractEggsLaid = 13.5;
+    var contractEggsLaidChar = 'B';
     var tempEggsLaidRatio = eggsLaidRatio;
     var eventGoals = 20;
     var eventGoalsChar = 'q';
@@ -92,12 +92,20 @@ function main() {
 
     contractCompletionTime = timeConvert(contractCompletionTime);
     console.log("I'll lay enough contract eggs in " + contractCompletionTime + " hours");
+
+    var eventAverageRatioNeeded = eventGoals / timeInMins;
+    var chickensToGetAverageNeeded = shortener(chickenNow * (eventAverageRatioNeeded / laidByMinNow));
+    eventAverageRatioNeeded = shortener(eventAverageRatioNeeded);
+
+    console.log("To get the average of " + eventAverageRatioNeeded + " eggs laid by minute, i'll need to get "
+        + chickensToGetAverageNeeded + " chickens.");
 }
 
 function timeConvert(num) {
     var hours = Math.floor(num / 60);
     var minutes = num % 60;
     var days;
+
     if (minutes == 0) {
         minutes = '00';
     } else if (minutes < 10) {
@@ -107,9 +115,10 @@ function timeConvert(num) {
     if (hours > 24) {
         days = Math.floor(hours / 24);
         hours = hours - (days * 24);
-        if (days >1){
+
+        if (days > 1) {
             return days + " days " + hours + ":" + minutes;
-        } else{
+        } else {
             return days + " day " + hours + ":" + minutes;
         }
     } else {
@@ -119,6 +128,7 @@ function timeConvert(num) {
 
 function shortener(toShorten) {
     let counter = 0;
+
     while (toShorten >= 1000000) {
         toShorten /= 1000;
         counter++;

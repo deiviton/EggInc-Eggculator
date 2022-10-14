@@ -23,7 +23,7 @@ function main() {
     var timeInMins = timeInHours * 60;
     var chickenByTheMorning = chickenNow + (chickenGrowth * timeInMins);
     var finalChickenByTheMorning = shortener(chickenByTheMorning);
-    console.log("We'll have " + finalChickenByTheMorning + " chickens " + timeInHours + "h from now");
+    console.log("We'll have " + finalChickenByTheMorning + " chickens " + timeConvert(timeInHours) + " hours from now");
 
     var eggsLaidRatio = laidByMinNow / chickenNow;
     var laidByMinThen = chickenByTheMorning * eggsLaidRatio;
@@ -34,7 +34,7 @@ function main() {
     var influx = (eggValue * (laidByMinThen / 60) * ((soulEggs * soulEggBonus) / 100));
     var influxStr = shortener(influx);
 
-    console.log("The money earned per second will be around " + influxStr + " monies per second.");
+    console.log("The money earned per second will be around " + influxStr + " credits per second.");
 
     var timeToFull = 0;
     var tempChickenNow = chickenNow;
@@ -44,7 +44,7 @@ function main() {
     }
 
     timeToFull = timeConvert(timeToFull);
-    console.log("The hen houses are expected to be full around " + timeToFull + "h from now.");
+    console.log("The hen houses are expected to be full around " + timeToFull + " hours from now.");
 
     timeToFull = 0;
     tempChickenNow = chickenNow;
@@ -57,7 +57,7 @@ function main() {
     }
 
     timeToFull = timeConvert(timeToFull);
-    console.log("We have about " + timeToFull + "h until the delivery services are at maximum.");
+    console.log("We have about " + timeToFull + " hours until the delivery services are at maximum.");
 
     tempChickenNow = chickenNow;
     var fiveMChickens = 5;
@@ -117,9 +117,9 @@ function timeConvert(num) {
         hours = hours - (days * 24);
 
         if (days > 1) {
-            return days + " days " + hours + ":" + minutes;
+            return days + " days and " + hours + ":" + minutes;
         } else {
-            return days + " day " + hours + ":" + minutes;
+            return days + " day and " + hours + ":" + minutes;
         }
     } else {
         return hours + ":" + minutes;
